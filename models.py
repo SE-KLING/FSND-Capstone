@@ -12,7 +12,7 @@ def setup_db(app, path=DATABASE_URL):
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
-    db.create_all()
+    # db.create_all()
 
 
 class Cast(db.Model):

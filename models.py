@@ -2,13 +2,13 @@ import os
 
 from flask_sqlalchemy import SQLAlchemy
 
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgres://localhost:5432/casting_agency')
+DATABASE_URL = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
 
 
 def setup_db(app, path=DATABASE_URL):
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://localhost:5432/casting_agency'
+    app.config['SQLALCHEMY_DATABASE_URI'] = path
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
